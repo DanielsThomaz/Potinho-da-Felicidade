@@ -1,0 +1,186 @@
+/*Reset de margem*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+/*incorporar toda tela e centralizar o conteúdo*/
+body{
+    margin: 0;
+    background-color: #f5eed4;
+    font-family: Libertinus Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container Central*/
+.container{
+    text-align: center;
+}
+
+.jar-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 200px;
+
+}
+
+#draw-button{
+    margin-top: 100px;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color:#ffa492;
+    transition: background 0.3s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#draw-button:hover {
+    background-color: #ff7f81;
+}
+
+.message-area {
+    position: absolute;
+    top: -120px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 0; /* Não precisa ocupar espaço extra */
+    /*z-index: 5;*/
+}
+/* centralizar o Titulo principal*/
+h2{
+    margin-top: 50px;   /* espaço do topo da página */
+    margin-bottom: 4px; /* espaço até o subtítulo */
+    text-align: center;
+}
+/* criação do potinho*/
+.jar{
+    position: relative;
+    width: 150px;
+    heigh: 220px;
+    display: flex;
+    flex-direciton:column;
+    align-items: center;
+    justify-content: flex-end;
+}
+.jar-body{
+        position: relative;
+        overflow: hidden;
+}
+/* corpo do potinho*/
+.jar-body{
+    width: 100%;
+    height: 85%;
+    background: rgb(255,255,255, 0.3);
+    border: 3px solid #ccc;
+    border-radius: 0 0 40px 40px; /*Arredondadomento inferior*/
+    box-shadow: inset 0 0 10px rgb(0,0,0, 0.1);
+    backdrop-filter: blur(2px); /* Efeito de vidro*/
+    bottom: 0;
+    z-index: 2;
+    margin-top: 110%;
+}
+/* Área do papel */
+#paper {
+    position: absolute;
+    top: 180;
+    width: 180px;
+    padding: 10px;
+    background: #fff8dc; /* cor de papel */
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    opacity: 0; /* invisível inicialmente */
+    transition: all 0.8s ease; /* animação suave */
+    z-index: 5;
+}
+
+/* Papel visível e acima do pote */
+#paper.show {
+    top: 300;
+     /* sobe para cima do pote */
+    opacity: 0;
+}
+
+.papel{
+    position: absolute;
+    width: 15px;
+    height: 25px;
+    background: #fffacd;
+    border: 1px solid #e6d8a2;
+    border-radius: 2px;
+}
+/*tampinha do potinho*/
+.jar-lid{
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    height: 20%;
+    background: #d4a373;
+    border-radius: 25px 25px 0 0;
+    border: 10px solid #a66b2f;
+    z-index: 2;
+    transition: top 0.5s ease;
+}
+
+.jar-lid::after{
+    content"";
+    position:absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: #d4a373;
+    border: 2px solid #a66b2f;
+    border-radius: 50%;
+}
+.jar-area{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+.jar-lid.open {
+    top: -50px; /* sobe na animação */
+}
+
+/* Área do papel*/
+#papel{
+    position: absolute;
+    top: -130px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    padding: 10px;
+    background: #fff8dc;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    opacity: 1;
+    transition: all 0.8 ease;
+    z-index: 5;
+}
+
+.papel-decorativo {
+  width: 20px;
+  height: 20px;
+  background-color: #f9c74f; /* cor amarela padrão */
+  position: absolute;
+  border-radius: 2px;
+  transform: rotate(15deg);
+  opacity: 0.8;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
