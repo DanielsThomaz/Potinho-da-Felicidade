@@ -1,6 +1,6 @@
 /*Reset de margem*/
 *{
-    margin:0;
+    margin: 0;
     padding:0;
     box-sizing: border-box;
 }
@@ -8,45 +8,128 @@
 /*incorporar toda tela e centralizar o conteúdo*/
 body{
     margin: 0;
-    background-color: #f5eed4;
-    font-family: Libertinus Sans", sans-serif;
+    background: linear-gradient(to bottom, #fff4e6, #f8e2e0, #eaa9a1);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Poppins", sans-serif;
+
     display: flex;
     flex-direction: column;
     justify-content: center
     align-items: center;
     height: 100vh;
 }
-
+h1{
+    font-size: 2rem;
+    font-weight: 500;
+    color: #eaa9a1;
+    margin-top: 60px;
+}
+.p{
+      font-size: 1rem;
+      font-weight: 400;
+      color: #3E3E3E;
+      text-align: center;
+      line-height: 1.4em;
+      margin: 0.5em 0;
+}
 /* Container Central*/
 .container{
     text-align: center;
 }
-
-.jar-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 200px;
-
-}
-
-#draw-button{
-    margin-top: 100px;
+/* Configuração do botão*/
+#drawButton{
+    margin-top: 50px;
     padding: 12px 24px;
     font-size: 16px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    background-color:#ffa492;
+    background-color:#febc35;
     transition: background 0.3s ease;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    color: white;
 }
-
-#draw-button:hover {
-    background-color: #ff7f81;
+:root{
+  /* cores principais — ajuste conforme quiser */
+  --btn-start: #ffb347;   /* início do degradê (laranja claro) */
+  --btn-end:   #ff8552;   /* fim do degradê (laranja) */
+  --btn-focus: 0 0 0 4px rgba(255,133,82,0.14);
+  --btn-shadow: 0 8px 18px rgba(238,137,92,0.18);
+  --btn-shadow-hover: 0 12px 26px rgba(238,137,92,0.22);
+  --btn-text: #ffffff;
+  --btn-radius: 999px;
+}
+/* estilo base do botão */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 180ms cubic-bezier(.2,.9,.3,1), box-shadow 180ms, filter 180ms;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  padding: 12px 20px; /* bom toque */
+  min-width: 180px;
+  border-radius: var(--btn-radius);
+  box-shadow: var(--btn-shadow);
+  will-change: transform, box-shadow;
+}
+/* variante primária com degradê */
+.btn-primary {
+  color: var(--btn-text);
+  background: linear-gradient(180deg, var(--btn-start) 0%, var(--btn-end) 100%);
+  background-size: 200% 200%;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  outline: none;
+}
+/* ícone */
+.btn-icon {
+  width: 16px;
+  height: 16px;
+  fill: white;
+  opacity: 0.98;
+  flex-shrink: 0;
+  transform-origin: center;
+}
+/* hover */
+.btn-primary:hover{
+  transform: translateY(-3px);
+  box-shadow: var(--btn-shadow-hover);
+  filter: saturate(1.03);
+  background-position: 0 100%;
+}
+/* active (pressionado) */
+.btn-primary:active{
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+/* foco visível (teclado) */
+.btn-primary:focus-visible{
+  box-shadow: var(--btn-shadow), var(--btn-focus);
+}
+/* estado desabilitado */
+.btn[disabled]{
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  filter: grayscale(0.12);
+}
+/* responsividade - botão menor em telas pequenas */
+@media (max-width: 420px){
+  .btn {
+    padding: 10px 16px;
+    font-size: 15px;
+    min-width: 160px;
+  }
 }
 
 .message-area {
@@ -58,51 +141,60 @@ body{
     height: 0; /* Não precisa ocupar espaço extra */
     /*z-index: 5;*/
 }
-/* centralizar o Titulo principal*/
-h2{
-    margin-top: 50px;   /* espaço do topo da página */
-    margin-bottom: 4px; /* espaço até o subtítulo */
-    text-align: center;
+
+.pote {
+  width: 200px;
+  height: 250px;
+  background: linear-gradient(to bottom,rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.15));
+  border-radius: 8px 8px 16px 16px;
+  position: relative;
+  margin: -350px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  padding: 24px 5px;
+
 }
-/* criação do potinho*/
-.jar{
-    position: relative;
-    width: 150px;
-    heigh: 220px;
-    display: flex;
-    flex-direciton:column;
-    align-items: center;
-    justify-content: flex-end;
+.papel{
+    width: 40px;
+    height: 215px;
+    margin-right: 1px;
+    background: #fffacd;
+    border: 1px solid #e6d8a2;
+    border-radius: 5px;
 }
-.jar-body{
-        position: relative;
-        overflow: hidden;
+.papel.amarelo { background-color: #FFD580; }
+.papel.roxo { background-color: #FFD6A5; }
+.papel.rosa-claro { background-color: #FFADAD; }
+.papel.vermelho { background-color: #A0C4FF;}
+.papel.azul { background-color:#BDB2FF; }
+.papel.azul-claro { background-color: #B5EAD7; }
+
+@keyframes subir {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
 }
-/* corpo do potinho*/
-.jar-body{
-    width: 100%;
-    height: 85%;
-    background: rgb(255,255,255, 0.3);
-    border: 3px solid #ccc;
-    border-radius: 0 0 40px 40px; /*Arredondadomento inferior*/
-    box-shadow: inset 0 0 10px rgb(0,0,0, 0.1);
-    backdrop-filter: blur(2px); /* Efeito de vidro*/
-    bottom: 0;
-    z-index: 2;
-    margin-top: 110%;
-}
+
 /* Área do papel */
 #paper {
     position: absolute;
     top: 180;
     width: 180px;
-    padding: 10px;
+    padding: 25px;
     background: #fff8dc; /* cor de papel */
-    border: 2px solid #ccc;
     border-radius: 8px;
     text-align: center;
     font-size: 16px;
-    opacity: 0; /* invisível inicialmente */
+    opacity: 1;/* invisível inicialmente */
     transition: all 0.8s ease; /* animação suave */
     z-index: 5;
 }
@@ -111,16 +203,7 @@ h2{
 #paper.show {
     top: 300;
      /* sobe para cima do pote */
-    opacity: 0;
-}
 
-.papel{
-    position: absolute;
-    width: 15px;
-    height: 25px;
-    background: #fffacd;
-    border: 1px solid #e6d8a2;
-    border-radius: 2px;
 }
 /*tampinha do potinho*/
 .jar-lid{
@@ -156,24 +239,6 @@ h2{
     top: -50px; /* sobe na animação */
 }
 
-/* Área do papel*/
-#papel{
-    position: absolute;
-    top: -130px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    padding: 10px;
-    background: #fff8dc;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    text-align: center;
-    font-size: 16px;
-    opacity: 1;
-    transition: all 0.8 ease;
-    z-index: 5;
-}
-
 .papel-decorativo {
   width: 20px;
   height: 20px;
@@ -184,3 +249,43 @@ h2{
   opacity: 0.8;
   box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
+--------------------------------------------------------------------------------------------
+/* Alinhamento das categorias dos papelzinho sendo 3 a direita e 3 a esquerda*/
+.categorias-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.categorias-linhas {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* espaço entre colunas */
+  margin-top: 10px;
+  flex-wrap: wrap; /* boa prática para responsividade */
+}
+
+/* texto descritivo dos tipos de papelzinhos*/
+.categorias-linhas ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+.categorias-linhas li {
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+/*Icone para descrever os tipos de papelzinhos*/
+.color-box {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+
+
+

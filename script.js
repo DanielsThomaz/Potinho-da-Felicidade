@@ -27,3 +27,26 @@ drawBtn.addEventListener('click', () => {
         paper.classList.remove('show');
     }, 3000);
 });
+
+/*Botão de Sortear bilhete*/
+const drawButton = document.getElementById('drawButton');
+
+drawButton.addEventListener('click', (e) => {
+  // prevenir multi-clique
+  if (drawButton.disabled) return;
+  drawButton.disabled = true;
+  drawButton.setAttribute('aria-pressed', 'true');
+
+  // animação visual curta: escala e volta
+  drawButton.style.transform = 'translateY(-2px) scale(0.995)';
+  setTimeout(()=> {
+    drawButton.style.transform = '';
+  }, 160);
+
+  // simular ação (ex.: sortear), depois reabilita
+  // substitua esse setTimeout pelo seu fluxo real de sorteio
+  setTimeout(() => {
+    drawButton.disabled = false;
+    drawButton.setAttribute('aria-pressed', 'false');
+  }, 700);
+});
