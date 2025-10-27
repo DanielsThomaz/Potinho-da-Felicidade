@@ -3,57 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Potinho da felicidade</title>
+    <title>Potinho/Caixinha da felicidade</title>
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body style="font-style: italic; text-align: center; padding: 20px; margin-bottom: 0.5em;">
 
-<h1>Potinho da Felicidade</h1>
-<p>Pote com mensagens para o seu restante do ano de 2025</p>
-<p><strong>Lembre-se:</strong> o potinho da felicidade só libera 1 bilhete por dia</p>
+<h1>
+    <img src="img/potinho-da-felicidade.png" alt="Pote da Felicidade" class="pote-felicidade">
+</h1>
+<p>Caixinha com mensagens para o seu restante do ano de 2025</p>
 
-<!-- CATEGORIAS COM CORES -->
-<div id="categorias" style="margin-top: 18px;">
-    <div class="categorias-linhas">
-        <ul class="coluna-esquerda">
-            <li><span class="color-box" style="background-color: #FFF3B0;"></span> Agradecimento</li>
-            <li><span class="color-box" style="background-color: #FFD6A5;"></span> Medo</li>
-            <li><span class="color-box" style="background-color: #FFADAD;"></span> Doente</li>
-        </ul>
-        <ul class="coluna-direita">
-            <li><span class="color-box" style="background-color: #A0C4FF;"></span> Ansioso(a)</li>
-            <li><span class="color-box" style="background-color: #BDB2FF;"></span> Sozinho(a)</li>
-            <li><span class="color-box" style="background-color: #B5EAD7;"></span> Triste</li>
-        </ul>
+
+<section id="tela-sentimento" class="tela-sentimento">
+    <img src="img/potinho-da-felicidade.png" alt="Pote da Felicidade" class="pote-felicidade">
+    <h2>Como você está se sentindo hoje?</h2>
+    <p>Conte um pouquinho para eu escolher a melhor mensagem para você:</p>
+    <textarea id="input-sentimento" placeholder="Escreva aqui..."></textarea>
+    <button id="btn-enviar-sentimento">Enviar</button>
+
+    <!--<img src="img/Baymax Background2.png" alt="Baymax decorativo" class="baymax-decorativo">-->
+</section>
+
+
+
+<!-- 🌟 Componente da Caixinha -->
+<figure class="caixa" id="caixinha" data-aberta="false">
+    <div class="caixa_base">
+        <button class="caixa__magneto esquerda" aria-label="Abrir caixa"></button>
+        <button class="caixa__magneto direita" aria-label="Abrir caixa"></button>
+        <div class="caixa__interior" id="conteudo-caixa">
+            <p id="texto-bilhete">💛 Pequenas alegrias constroem grandes dias.</p>
+        </div>
     </div>
-</div>
+    <div class="caixa_tampa" role="button" aria-expanded="false" tabindex="0"></div>
+</figure>
 
-<!-- Botões -->
-<div style="margin-top: 430px;">
+<!--<img src="img/Baymax Background.png" alt="Baymax deitado" id="baymax-sentimento" class="baymax-deitado">-->
+
+<!-- Botão Original -->
+<div style="margin-top: 80px;">
     <button id="drawButton" class="btn btn-primary" aria-pressed="false" title="Sortear um papelzinho">
-        <!-- ícone (SVG) + texto -->
         <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <path d="M12 2 L15 8 L22 9 L17 13 L18.5 20 L12 16.5 L5.5 20 L7 13 L2 9 L9 8 Z" />
         </svg>
         <span class="btn-label">Sortear Papelzinho</span>
     </button>
-
 </div>
-
-<!-- Área do papelzinho sorteado -->
-<div id="paper" style="margin-top: -430px;"></div>
-
-<div class="pote" id="pote">
-    <div class="papel amarelo"></div>
-    <div class="papel roxo"></div>
-    <div class="papel rosa-claro"></div>
-    <div class="papel vermelho"></div>
-    <div class="papel azul"></div>
-    <div class="papel azul-claro"></div>
-    <!-- Adicione mais conforme quiser -->
-</div>
-
 
 <script src="script.js"></script>
 </body>

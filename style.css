@@ -16,7 +16,7 @@ body{
 
     display: flex;
     flex-direction: column;
-    justify-content: center
+    justify-content: center;
     align-items: center;
     height: 100vh;
 }
@@ -34,10 +34,7 @@ h1{
       line-height: 1.4em;
       margin: 0.5em 0;
 }
-/* Container Central*/
-.container{
-    text-align: center;
-}
+
 /* Configuração do botão*/
 #drawButton{
     margin-top: 50px;
@@ -132,135 +129,17 @@ h1{
   }
 }
 
-.message-area {
-    position: absolute;
-    top: -120px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 0; /* Não precisa ocupar espaço extra */
-    /*z-index: 5;*/
-}
-
-.pote {
-  width: 200px;
-  height: 250px;
-  background: linear-gradient(to bottom,rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.15));
-  border-radius: 8px 8px 16px 16px;
-  position: relative;
-  margin: -350px auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  overflow-x: auto;
-  overflow-y: hidden;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: flex-start;
-  padding: 24px 5px;
-
-}
-.papel{
-    width: 40px;
-    height: 215px;
-    margin-right: 1px;
-    background: #fffacd;
-    border: 1px solid #e6d8a2;
-    border-radius: 5px;
-}
-.papel.amarelo { background-color: #FFD580; }
-.papel.roxo { background-color: #FFD6A5; }
-.papel.rosa-claro { background-color: #FFADAD; }
-.papel.vermelho { background-color: #A0C4FF;}
-.papel.azul { background-color:#BDB2FF; }
-.papel.azul-claro { background-color: #B5EAD7; }
-
-@keyframes subir {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-5px);
-  }
-}
-
-/* Área do papel */
-#paper {
-    position: absolute;
-    top: 180;
-    width: 180px;
-    padding: 25px;
-    background: #fff8dc; /* cor de papel */
-    border-radius: 8px;
-    text-align: center;
-    font-size: 16px;
-    opacity: 1;/* invisível inicialmente */
-    transition: all 0.8s ease; /* animação suave */
-    z-index: 5;
-}
-
-/* Papel visível e acima do pote */
-#paper.show {
-    top: 300;
-     /* sobe para cima do pote */
-
-}
-/*tampinha do potinho*/
-.jar-lid{
-    position: absolute;
-    top: 60px;
-    width: 100%;
-    height: 20%;
-    background: #d4a373;
-    border-radius: 25px 25px 0 0;
-    border: 10px solid #a66b2f;
-    z-index: 2;
-    transition: top 0.5s ease;
-}
-
-.jar-lid::after{
-    content"";
-    position:absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 20px;
-    background: #d4a373;
-    border: 2px solid #a66b2f;
-    border-radius: 50%;
-}
-.jar-area{
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-}
-.jar-lid.open {
-    top: -50px; /* sobe na animação */
-}
-
-.papel-decorativo {
-  width: 20px;
-  height: 20px;
-  background-color: #f9c74f; /* cor amarela padrão */
-  position: absolute;
-  border-radius: 2px;
-  transform: rotate(15deg);
-  opacity: 0.8;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-}
 --------------------------------------------------------------------------------------------
 /* Alinhamento das categorias dos papelzinho sendo 3 a direita e 3 a esquerda*/
 .categorias-container {
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
 }
-
 .categorias-linhas {
   display: flex;
   justify-content: center;
-  gap: 40px; /* espaço entre colunas */
-  margin-top: 10px;
+  gap: 15px; /* espaço entre colunas */
+  margin-top: 5px;
   flex-wrap: wrap; /* boa prática para responsividade */
 }
 
@@ -273,7 +152,7 @@ h1{
 }
 .categorias-linhas li {
   margin-bottom: 6px;
-  font-size: 16px;
+  font-size: 11px;
 }
 
 /*Icone para descrever os tipos de papelzinhos*/
@@ -285,7 +164,390 @@ h1{
   border-radius: 3px;
   vertical-align: middle;
 }
+/* garante referência pro posicionamento absoluto */
+.jar { position: relative; }
+
+/* ===== Etiqueta “papel branco” ===== */
+:root{
+  --label-w: 199px;   /* largura da etiqueta */
+  --label-h: 165px;    /* altura da etiqueta  */
+  --label-top: 70px;  /* distância do topo da .jar (posicionamento vertical) */
+}
 
 
+.jar-container {
+    position: relative;
+    display: inline-block;
+}
 
+.pote-felicidade {
+    width: 150px; /* ajuste conforme o tamanho desejado */
+    height: auto;
+}
 
+/* Ajuste para centralizar melhor */
+.caixa3d-container {
+  perspective: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+/* Ajuste de responsividade */
+@media (max-width: 480px) {
+  .caixa3d {
+    width: 130px;
+    height: 100px;
+  }
+
+  .bilhete3d {
+    width: 120px;
+    font-size: 13px;
+  }
+
+  .btn {
+    transform: scale(0.9);
+  }
+}
+/* ============================
+   Caixa com Tampa Branca 3D (nova versão)
+   ============================ */
+
+:root {
+  --largura-caixa: 240px;
+  --altura-caixa: 170px;
+  --cor-base: #ffffff;
+  --cor-tampa: #ffffff;
+  --cor-interior: #f5f5f5;
+  --angulo-abertura: -250deg;
+  --duracao: 0.9s;
+}
+
+/* Container geral com perspectiva */
+.caixa {
+  width: var(--largura-caixa);
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  position: relative;
+  margin: 80px auto;
+}
+
+/* Base da caixa */
+.caixa_base {
+  position: relative;
+  width: 100%;
+  height: var(--altura-caixa);
+  background: var(--cor-base);
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  transform: rotateX(25deg);
+  transform-origin: bottom;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+/* Interior da caixa */
+.caixa__interior {
+  position: absolute;
+  inset: 6px;
+  background: var(--cor-interior);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  font-size: 14px;
+  color: #444;
+  padding: 10px;
+  text-align: center;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Efeito de espessura da base */
+.caixa_base::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: #eaeaea;
+  transform: skewX(-6deg);
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+/* Ímãs */
+.caixa__magneto {
+  position: absolute;
+  bottom: -8px;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle at 30% 30%, #999, #444);
+  border-radius: 3px;
+  cursor: pointer;
+  z-index: 3;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.caixa__magneto.esquerda { left: 40px; }
+.caixa__magneto.direita { right: 40px; }
+
+/* Tampa */
+.caixa_tampa {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(var(--altura-caixa) / 1.5);
+  background: var(--cor-tampa);
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  transform-origin: back center;
+  transform: rotateX(25deg); /* igual à base para alinhar perspectiva */
+  transition: transform var(--duracao) ease-in;
+  z-index: 2;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Animação da tampa ao abrir */
+.caixa[data-aberta="true"] .caixa_tampa {
+  transform: rotateX(130deg) translateY(95px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Pequena sombra interna da tampa */
+.caixa_tampa::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(230,230,230,0.7));
+}
+
+/* ===========================
+   🎭 Tela inicial: Como você está se sentindo?
+   =========================== */
+.tela-sentimento {
+  position: fixed;
+  inset: 0; /* ocupa toda a tela */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #fff4e6, #f8e2e0, #eaa9a1);
+  z-index: 999;
+  text-align: center;
+  padding: 20px;
+  animation: fadeIn 0.8s ease;
+}
+
+/* título e texto */
+.tela-sentimento h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #e67b75;
+  margin-bottom: 10px;
+}
+
+.tela-sentimento p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+/* campo de texto */
+.tela-sentimento textarea {
+  width: 80%;
+  max-width: 400px;
+  min-height: 100px;
+  resize: none;
+  border: 1px solid #ffbca8;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.tela-sentimento textarea:focus {
+  outline: none;
+  border-color: #ff9a76;
+  box-shadow: 0 0 8px rgba(255,154,118,0.4);
+}
+
+/* botão enviar */
+#btn-enviar-sentimento {
+  margin-top: 20px;
+  background: linear-gradient(180deg, #ffb347 0%, #ff8552 100%);
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 10px 28px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(255, 133, 82, 0.22);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* ===== Botão enviar: hover / active / focus ===== */
+#btn-enviar-sentimento {
+  transition: transform 200ms cubic-bezier(.2,.9,.3,1), box-shadow 200ms ease, opacity 160ms ease;
+  will-change: transform, box-shadow;
+  /* mantém resto das regras (padding, background, border-radius...) no seu CSS principal */
+}
+
+/* hover: levanta e aumenta sombra */
+#btn-enviar-sentimento:hover,
+#btn-enviar-sentimento:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255,133,82,0.28);
+  outline: none; /* foco visível por box-shadow / ou manter :focus-visible abaixo */
+}
+
+/* foco de acessibilidade: quando foco por teclado (mais visível) */
+#btn-enviar-sentimento:focus-visible {
+  box-shadow: 0 10px 28px rgba(255,133,82,0.32), 0 0 0 6px rgba(255,154,118,0.12);
+}
+
+/* active: "pressionado" — volta para a posição e reduz sombra */
+#btn-enviar-sentimento:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  transition-duration: 120ms; /* resposta rápida ao toque */
+}
+
+/* Pequena animação de entrada (usada quando a tela aparece) */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Animação de saída (usada pela classe .fade-out no overlay) */
+@keyframes fadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(1.02); }
+}
+
+/* Aplica fade-out quando a classe for adicionada (JS) */
+.tela-sentimento.fade-out {
+  animation: fadeOut 600ms ease forwards;
+  pointer-events: none; /* evita cliques enquanto some */
+}
+
+/* Prefers reduced motion: remove animações/transforms para usuários que pedem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  #btn-enviar-sentimento,
+  #btn-enviar-sentimento:hover,
+  #btn-enviar-sentimento:active,
+  #btn-enviar-sentimento:focus,
+  .tela-sentimento,
+  .tela-sentimento.fade-out {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* ========================= */
+/* 💛 Overlay de aviso diário */
+/* ========================= */
+
+#aviso-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.4s ease;
+}
+
+.aviso-box {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+  text-align: center;
+  font-style: italic;
+  max-width: 320px;
+  animation: popUp 0.35s ease;
+}
+
+.aviso-box p {
+  margin-bottom: 12px;
+  color: #333;
+  font-size: 1.05rem;
+}
+
+#btn-ok-aviso {
+  background: linear-gradient(135deg, #ff9557, #ff7b39);
+  border: none;
+  padding: 10px 28px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#btn-ok-aviso:hover {
+  transform: scale(1.07);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ✨ Animações suaves */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* 🌟 BAYMAX - imagens decorativas fixas */
+#baymax-sentimento,
+#baymax-caixinha {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 220px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+  z-index: 2;
+}
+
+/* 👋 Quando ativo (visível) */
+.baymax-ativo {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 💭 Baymax da tela de sentimento (deitado) */
+#baymax-sentimento {
+  bottom: -500px;   /* sobe levemente */
+  left: 10px;
+}
+
+/* 🤗 Baymax da tela da caixinha (escorado) */
+#baymax-caixinha {
+  bottom: 150px;  /* posição aproximada da área azul */
+  left: 80px;
+}
