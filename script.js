@@ -44,18 +44,45 @@ document.addEventListener("DOMContentLoaded", () => {
       "🌿 Um passo de cada vez, o agora é suficiente.",
       "🕊️ Respire fundo, tudo se ajeita no tempo certo.",
       "💛 Calma: a vida não está correndo contra você.",
-      "🌤️ Às vezes, o melhor que podemos fazer é desacelerar."
+      "🌤️ Às vezes, o melhor que podemos fazer é desacelerar.",
+      "🌬 Respira. O agora é o único momento que que realmente existe.",
+      "⏰ Você não está atrasado(a), está no seu próprio tempo.",
+      "🌱 Você está indo bem, mesmo sem sentir que está.",
+      "💪 A calma também é uma forma de força.",
+      "⚖️ Você não precisa provar o seu valor sendo produtivo.",
+      "⏳ Deixa o tempo fazer o trabalho que a pressa não consegue.",
+      "🧘‍♀️ Você não é o que pensa; é quem observa o pensamento.",
+      "🕊️ Você não precisa apressar o que o coração ainda está aprendendo.",
+      "🌊 Você não precisa ter controle, só confiança."
     ],
     cansado: [
       "😴 Descanse um pouco, o mundo pode esperar.",
       "🌙 Até o sol precisa se pôr para renascer no dia seguinte.",
       "💤 Você não precisa dar conta de tudo agora.",
-      "🩵 Cuide de você — recarregar também é progresso."
+      "🫶 Você não está parado, está recarregando.",
+      "💤 Descansar é um ato de amor-próprio.",
+      "🪞 Olhe pra você com gentileza — você fez o melhor que pôde.",
+      "🌙 Mesmo o sol precisa se pôr pra voltar a brilhar.",
+      "🌿 Permita-se parar sem culpa.",
+      "🍃 Seu corpo e sua mente merecem um respiro.",
+      "🌷 Seja paciente consigo — até as flores precisam de tempo pra abrir.",
+      "💭 O amanhã vai te agradecer pelo cuidado de hoje.",
+      "🚶‍♀ Desacelerar também é seguir em frente.",
+      "🌻 Seu valor não depende do quanto você faz."
     ],
     neutro: [
       "✨ Cada dia guarda pequenas surpresas.",
       "🌻 Às vezes o simples já é bonito.",
       "🍃 Mesmo parado, você ainda está crescendo.",
+      "🌻 Pequenas pausas constroem grandes calmas.",
+      "🌸 O equilíbrio também é forma de alegria.",
+      "🌿 A neutralidade é o espaço entre o ontem e o amanhã.",
+      "☀️ Mesmo parado, você segue crescendo.",
+      "☕ Há leveza nos dias sem grandes emoções.",
+      "🪶 Respirar fundo faz valer a calma do dia.",
+      "🫶 Hoje é um bom dia pra só estar presente.",
+      "💫 A vida também acontece nos meios-termos.",
+      "🌞 Dias comuns também são dias bons.",
       "💫 Um dia leve também é um bom dia."
     ]
   };
@@ -133,13 +160,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const ultimoSorteio = localStorage.getItem("ultimoSorteio");
 
       // Se já sorteou hoje → mostra aviso e volta pra tela de sentimento
-      /*if (ultimoSorteio === hoje) {
+      if (ultimoSorteio === hoje) {
         mostrarAviso();
         return;
-      }*/
+      }
 
       // Marca que sorteou hoje
-      //localStorage.removeItem("ultimoSorteio");
+      localStorage.removeItem("ultimoSorteio");
 
       abrirCaixa();
 
